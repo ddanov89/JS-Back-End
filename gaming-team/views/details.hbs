@@ -1,0 +1,38 @@
+<main id="details">
+    {{#with game}}
+    <section id="details-info">
+        <div class="game-image">
+            <img src="{{image}}">
+        </div>
+        <div class="game-info">
+            <div class="game-text">
+                <h1 id="name">{{image}}</h1>
+                <h3 id="platform">Platform: {{platform}}</h3>
+                <p id="price"><span>Price: ${{price}}</span></p>
+                <p id="genre"><span>Genre: {{genre}}</span></p>
+                <p id="description">{{description}}</p>
+            </div>
+
+            {{#if hasUser}}
+
+            <div class="product-btn">
+
+                {{#if isAuthor}}
+
+                <div class="author">
+                    <a href="/edit/{{_id}}" class="btn-edit">Edit</a>
+                    <a href="/delete/{{_id}}" class="btn-delete">Delete</a>
+                </div>
+                {{else}}
+                {{#if hasBeenBought}}
+                <p class="buy-message">You have already bought this game</p>
+                {{else}}
+                <a href="/buy/{{_id}}" class="btn-buy">Buy</a>
+                {{/if}}
+                {{/if}}
+            </div>
+            {{/if}}
+        </div>
+        {{/with}}
+    </section>
+</main>
